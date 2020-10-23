@@ -5,7 +5,7 @@ import Posts from '../Posts/Posts';
 import './Blog.css';
 //import axios from 'axios';
 import axios from '../../hoe/axios';
-import {Route,Link} from 'react-router-dom';
+import {Route,NavLink} from 'react-router-dom';
 import NewPost from '../NewPost/NewPost';
 
 class Blog extends Component {
@@ -23,12 +23,12 @@ class Blog extends Component {
 
                 <div className="Navbar">
                     <ul>
-                        <Link to="/"> Home</Link>
-                        <Link to={{
-                            pathname:this.props.match.url+"/new-post",
+                        <NavLink to="/" exact activeClassName="my-active" activeStyle={{textDecoration: 'underline'}}> Home</NavLink>
+                        <NavLink to={{
+                            pathname:"/new-post",
                             hash:"#submit",
                             search:"?quick-search=true"
-                        }}> New Post</Link>
+                        }}> New Post</NavLink>
                     </ul>
                 </div>
                 {/* <Route path="/" exact render={()=><p>Home</p>}></Route> */}

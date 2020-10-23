@@ -15,18 +15,19 @@
     float: left;
     padding: 12px;
     color: white;
-    text-decoration: none;
     font-size: 17px;
   }
   
   .Navbar a:hover {
-    background-color: #000;
+    background-color: #74dd77;
   }
   
   .active {
     background-color: #4CAF50;
   }
-  
+  .my-active{
+      background-color: #4ee453 !important;
+  }
   @media screen and (max-width: 500px) {
     .Navbar a {
       float: none;
