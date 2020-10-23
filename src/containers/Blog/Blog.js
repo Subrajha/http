@@ -6,6 +6,7 @@ import './Blog.css';
 //import axios from 'axios';
 import axios from '../../hoe/axios';
 import {Route} from 'react-router-dom';
+import NewPost from '../NewPost/NewPost';
 
 class Blog extends Component {
     state = {
@@ -26,7 +27,10 @@ class Blog extends Component {
                         <a href="/new-post"> New Post</a>
                     </ul>
                 </div>
-                <Route path="/" exact render={()=><p>Home</p>}></Route>
+                {/* <Route path="/" exact render={()=><p>Home</p>}></Route> */}
+                <Route path="/" exact component={Posts}></Route>
+                <Route path="/new-post" exact component={NewPost}></Route>
+
                
             </div>
         );
