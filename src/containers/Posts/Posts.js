@@ -4,6 +4,7 @@ import Post from '../../components/Post/Post';
 
 //import axios from 'axios';
 import axios from '../../hoe/axios';
+import {Link} from 'react-router-dom';
 
 class Posts extends Component {
     state = {
@@ -35,11 +36,15 @@ class Posts extends Component {
         if (this.state.error) posts = <p>something wrong</p>
         else {
             posts = this.state.posts.map((res) => {
-                return <Post
-                    key={res.id}
+                return (
+                <Link to={'/'+res.id} key={res.id}>
+                <Post
+                    
                     title={res.title}
                     author={res.author}
                     clicked={() => this.selectedPostID(res.id)} />
+                </Link>
+                );
             })
         }
         return ( <section className="Posts">

@@ -7,9 +7,9 @@ class FullPost extends Component {
     state = {
         selectedposts: null
     }
-    componentDidUpdate() {
-        if ((!this.state.selectedposts && this.props.id) || (this.props.id && this.state.selectedposts && this.state.selectedposts.id !== this.props.id)) {
-            axios.get('https://jsonplaceholder.typicode.com/posts/' + this.props.id).then(response => {
+    componentWillMount() {
+        if ((!this.state.selectedposts && this.props.match.params.id) || (this.props.match.params.id && this.state.selectedposts && this.state.selectedposts.id !== this.props.match.params.id)) {
+            axios.get('https://jsonplaceholder.typicode.com/posts/' + this.props.match.params.id).then(response => {
                 this.setState({ selectedposts: response.data });
             });
         }
@@ -17,7 +17,7 @@ class FullPost extends Component {
     }
 
     deletePost = () => {
-        axios.delete('https://jsonplaceholder.typicode.com/posts/' + this.props.id).then(response => {
+        axios.delete('https://jsonplaceholder.typicode.com/posts/' + this.props.match.params.id).then(response => {
             console.log(response);
         });
     }
