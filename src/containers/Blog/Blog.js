@@ -5,9 +5,9 @@ import Posts from '../Posts/Posts';
 import './Blog.css';
 //import axios from 'axios';
 import axios from '../../hoe/axios';
-import {Route,NavLink} from 'react-router-dom';
+import { Route, NavLink,Switch } from 'react-router-dom';
 import NewPost from '../NewPost/NewPost';
-import  FullPost  from "../FullPost/FullPost";
+import FullPost from "../FullPost/FullPost";
 
 class Blog extends Component {
     state = {
@@ -15,29 +15,31 @@ class Blog extends Component {
         selectedId: null,
         error: null
     }
-   
+
     render() {
-     
+
 
         return (
             <div>
 
                 <div className="Navbar">
                     <ul>
-                        <NavLink to="/" exact activeClassName="my-active" activeStyle={{textDecoration: 'underline'}}> Home</NavLink>
+                        <NavLink to="/" exact activeClassName="my-active" activeStyle={{ textDecoration: 'underline' }}> Home</NavLink>
                         <NavLink to={{
-                            pathname:"/new-post",
-                            hash:"#submit",
-                            search:"?quick-search=true"
+                            pathname: "/new-post",
+                            hash: "#submit",
+                            search: "?quick-search=true"
                         }}> New Post</NavLink>
                     </ul>
                 </div>
                 {/* <Route path="/" exact render={()=><p>Home</p>}></Route> */}
-                <Route path="/" exact component={Posts}></Route>
-                <Route path="/new-post" exact component={NewPost}></Route>
-                <Route path="/:id" exact component={FullPost}></Route>
+                <Switch>
+                    <Route path="/" exact component={Posts}></Route>
+                    <Route path="/new-post" exact component={NewPost}></Route>
+                    <Route path="/:id" exact component={FullPost}></Route>
+                </Switch>
 
-               
+
             </div>
         );
     }
