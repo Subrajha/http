@@ -5,6 +5,7 @@ import Posts from '../Posts/Posts';
 import './Blog.css';
 //import axios from 'axios';
 import axios from '../../hoe/axios';
+import {Route} from 'react-router-dom';
 
 class Blog extends Component {
     state = {
@@ -22,10 +23,10 @@ class Blog extends Component {
                 <div className="Navbar">
                     <ul>
                         <a className="active" href="/"> Home</a>
-                        <a href="/"> New Post</a>
+                        <a href="/new-post"> New Post</a>
                     </ul>
                 </div>
-                <Posts />
+                <Route path="/" exact render={()=><p>Home</p>}></Route>
                
             </div>
         );
